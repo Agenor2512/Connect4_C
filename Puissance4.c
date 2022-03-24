@@ -9,9 +9,7 @@
 #define NOMBRE_COLONNES 7
 
 /**
-TODO : - SI aucun des joueur n'arrive à gagner et que la grille est pleine ou a au moins une case vide ALORS le signaler et stopper la partie
-       - SI un joueur aligne 4 pions (en ligne, en colonne ou en diagonale) ALORS signaler que la partie est gagner, stopper la partie
-       - Gérer quand un caractère est entré et pas un int
+TODO : - Gérer quand un caractère est entré et pas un int
 **/
 
 char grille[NOMBRE_LIGNES][NOMBRE_COLONNES];
@@ -286,7 +284,7 @@ int diagonaleGagnante(Coordonnees positionJeton) {
   }
 
   // Cas où il peut y avoir trois jetons vers le haut à gauche du jeton qui vient d'être joué
-  if (positionJeton.indexLigne >= 3 && positionJeton.indexColonne <= 3 &&
+  if (positionJeton.indexLigne >= 3 && positionJeton.indexColonne >= 3 &&
       grille[positionJeton.indexLigne][positionJeton.indexColonne] == grille[positionJeton.indexLigne-1][positionJeton.indexColonne-1] &&
       grille[positionJeton.indexLigne][positionJeton.indexColonne] == grille[positionJeton.indexLigne-2][positionJeton.indexColonne-2] &&
       grille[positionJeton.indexLigne][positionJeton.indexColonne] == grille[positionJeton.indexLigne-3][positionJeton.indexColonne-3]) {
@@ -302,7 +300,7 @@ int diagonaleGagnante(Coordonnees positionJeton) {
   }
 
   // Cas où il peut y avoir trois jetons vers le bas à droite du jeton qui vient d'être joué
-  if (positionJeton.indexLigne <= NOMBRE_LIGNES-4 && positionJeton.indexColonne >= NOMBRE_COLONNES-4 &&
+  if (positionJeton.indexLigne <= NOMBRE_LIGNES-4 && positionJeton.indexColonne <= NOMBRE_COLONNES-4 &&
       grille[positionJeton.indexLigne][positionJeton.indexColonne] == grille[positionJeton.indexLigne+1][positionJeton.indexColonne+1] &&
       grille[positionJeton.indexLigne][positionJeton.indexColonne] == grille[positionJeton.indexLigne+2][positionJeton.indexColonne+2] &&
       grille[positionJeton.indexLigne][positionJeton.indexColonne] == grille[positionJeton.indexLigne+3][positionJeton.indexColonne+3]) {
